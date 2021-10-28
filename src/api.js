@@ -1,14 +1,17 @@
 const express = require('express');
 const serverless = require('serverless-http');
+const requestIp = require('request-ip');
 const ipInfo = require("ipinfo");
 const router=express.Router();
 
 const app = express();
 router.get('/',(req, res) =>{
 
+    const clientIp = requestIp.getClientIp(req);
     //const geo = geoip.lookup(ipg);
-
-    ipInfo((err, cLoc) => {
+    //const ipg="14.140.206.158";
+    const ipg=clientIp.toString();
+    ipInfo(ipg, (err, cLoc) => {
         if (cLoc.country==="IN")
             {
                 res.redirect('https://www.google.com');
