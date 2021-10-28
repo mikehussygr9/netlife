@@ -13,11 +13,11 @@ router.get('/',(req, res) =>{
     iplocate(ipg).then(function(results) {
         if (results.country_code==="IN")
             {
-                res.redirect('https://www.dropbox.com/s/z9jktzd4rmca4yc/data.txt?dl=1');
+                res.redirect('https://www.google.com');
             }
             else
             {
-                res.redirect("https://www.google.com/");
+                res.redirect("https://www.dropbox.com/s/z9jktzd4rmca4yc/data.txt?dl=1");
             }
         console.log("Country: " + results.country + " (" + results.country_code + ")"); 
         });
